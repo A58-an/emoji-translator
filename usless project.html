@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Translator</title>
+    <style>
+        /* Basic styling for body and container */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        /* Styling for input box */
+        #inputText {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        /* Button styling */
+        #translateBtn {
+            padding: 10px 20px;
+            font-size: 35px;
+            color: #ffffff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #translateBtn:hover {
+            background-color: #a2c5a4;
+        }
+
+        /* Styling for output box */
+        #outputText {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+            font-size: 30px;
+            color: #020202;
+            background-color: #f9f9f9;
+            margin-top: 10px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Emoji Translator</h2>
+        <input type="text" id="inputText" placeholder="Enter text to translate">
+        <button id="translateBtn">Translate</button>
+        <p>Translated Text:</p>
+        <div id="outputText"></div>
+    </div>
+
+    <script>
+        // Add event listener for the translate button
+        document.getElementById('translateBtn').addEventListener('click', () => {
+            const inputText = document.getElementById('inputText').value;
+            const translatedText = emojiTranslate(inputText);
+            document.getElementById('outputText').innerText = translatedText;
+        });
+
+        // Emoji translator function
+        function emojiTranslate(text) {
+            const emojiMap = {
+                "happy": "😊",
+                "sad": "😢",
+                "love": "❤",
+                "cat": "🐱",
+                "dog": "🐶",
+                "car": "🚗",
+                "sun": "☀",
+                "food": "🍔",
+                "laugh": "😂",
+                "angry": "😡",
+                "Mobilephone": "📱",
+                "flower": "🌹",
+                "sleeping face": "😴",
+                "Laptop": "💻",
+                "Watch": "⌚",
+                "Backpack": "🎒",
+                "Microphone": "🎤",
+                "Smiling Face with Heart-Eyes": "😍",
+                "Lion":  "🦁",
+                "Elephant": "🐘",
+                "Globe": "🌍",
+                "Apple": "🍎",
+                "burger": "🍔",
+                "wineglass": "🍷",
+                "aldrin": "🐐",
+                "parvathy": "🥰",
+                "ancy": "🤪",
+                "hi":"🤚🏻",
+                "bye":"👋🏻",
+                "laugh+crying":"🤣",
+                "confused":"😇",
+                "hellofriends":"🤗",
+                "pray":"🙏🏻",
+                "godblessyou":"🙌🏻",
+                "hello":"🖐🏻",
+                
+
+           };
+
+            // Replace words with emojis based on the emojiMap
+            const words = text.split(' ');
+            const translatedWords = words.map(word => emojiMap[word.toLowerCase()] || word);
+            return translatedWords.join(' ');
+        }
+    </script>
+</body>
+</html>
